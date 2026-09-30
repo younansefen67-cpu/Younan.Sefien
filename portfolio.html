@@ -202,7 +202,13 @@
     <div class="sub-en">Portfolio Gallery</div>
     <div class="hint">نماذج من الشغل هتتضاف هنا أول بأول</div>
   </header>
-
+<!-- زر رفع مشروع جديد (للمعاينة المحلية) -->
+<div style="text-align: center; margin-bottom: 30px;">
+    <label for="file-upload" style="background: transparent; color: var(--gold); border: 1px dashed var(--gold); padding: 10px 24px; border-radius: 12px; cursor: pointer; font-weight: bold; font-size: 16px; display: inline-block; transition: 0.3s;">
+        ➕ رفع مشروع جديد للمعاينة
+    </label>
+    <input id="file-upload" type="file" accept="video/mp4, image/jpeg, image/png, image/webp" style="display: none;" onchange="addNewProject(event)">
+</div>
   <div class="gallery">
     
         <div class="gcard video-card">
