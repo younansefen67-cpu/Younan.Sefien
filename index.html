@@ -1,62 +1,159 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>YOUNAN SEFIEN — قائمة الأسعار</title>
-  <style>
-    :root{--bg:#0b0a10;--card:#17141f;--gold:#e4c17a;--muted:#c2bec9;--line:rgba(228,193,122,.38)}
-    *{box-sizing:border-box} body{margin:0;font-family:Tahoma,"Segoe UI",sans-serif;color:#fff;background:radial-gradient(700px 480px at 15% 0%,#382b24 0%,transparent 68%),radial-gradient(600px 420px at 95% 35%,#211a3b 0%,transparent 70%),var(--bg);min-height:100vh}
-    main{max-width:760px;margin:auto;padding:44px 20px 72px}.top{height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin-bottom:34px}
-    header{text-align:center;margin-bottom:34px}h1{color:var(--gold);font-size:30px;margin:0 0 9px}.tag{color:var(--muted);margin:0;font-size:15px}
-    h2{font-size:19px;color:var(--gold);margin:36px 0 15px;padding-bottom:9px;border-bottom:1px solid var(--line)}
-    .grid{display:grid;gap:15px}.card{background:linear-gradient(135deg,rgba(228,193,122,.12),rgba(255,255,255,.035));border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 9px 28px rgba(0,0,0,.2)}
-    .row{display:flex;gap:18px;align-items:center;justify-content:space-between}.name{font-size:18px;font-weight:700;line-height:1.55}.price{flex:none;color:#111;background:linear-gradient(135deg,#f0d28e,#c79c52);border-radius:999px;padding:10px 15px;font-weight:800;white-space:nowrap}
-    .details{color:var(--muted);font-size:14px;line-height:1.7;margin:10px 0 0}.extra{color:var(--gold);font-size:13px;margin-top:7px}footer{text-align:center;color:#aaa3b1;font-size:13px;margin-top:42px}
-    @media(max-width:440px){main{padding:30px 15px 55px}.row{gap:10px}.name{font-size:16px}.price{padding:9px 12px;font-size:14px}h1{font-size:26px}}
-  .brand-logo{width:150px;height:150px;object-fit:contain;border-radius:50%;margin:0 auto 15px;display:block;box-shadow:0 0 30px rgba(228,193,122,.18)}.whatsapp{display:inline-flex;align-items:center;justify-content:center;gap:9px;margin-top:20px;background:#25d366;color:#08140d;text-decoration:none;font-weight:800;padding:13px 22px;border-radius:999px;box-shadow:0 8px 22px rgba(37,211,102,.25);transition:transform .18s ease}.whatsapp:hover{transform:translateY(-2px)}
-  </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>YOUNAN SEFIEN — معرض الأعمال</title>
+    <style>
+        :root {
+            --bg: #0b0a10;
+            --card: #17141f;
+            --gold: #e4c17a;
+            --muted: #c2bec9;
+            --line: rgba(228, 193, 122, .38);
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Tahoma, "Segoe UI", sans-serif;
+            color: #fff;
+            background: radial-gradient(700px 480px at 15% 0%, #382b24 0%, transparent 68%),
+                        radial-gradient(600px 420px at 95% 35%, #211a3b 0%, transparent 70%),
+                        var(--bg);
+            min-height: 100vh;
+        }
+        main {
+            max-width: 900px;
+            margin: auto;
+            padding: 44px 20px 72px;
+        }
+        .top {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin-bottom: 34px;
+        }
+        header { text-align: center; margin-bottom: 40px; }
+        h1 { color: var(--gold); font-size: 30px; margin: 0 0 9px; }
+        .tag { color: var(--muted); margin: 0; font-size: 15px; }
+        
+        /* Navigation Buttons */
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        .nav-btn {
+            background: linear-gradient(135deg, rgba(228,193,122,.12), rgba(255,255,255,.035));
+            border: 1px solid var(--line);
+            color: var(--gold);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 999px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .nav-btn:hover {
+            background: var(--gold);
+            color: #0b0a10;
+        }
+
+        /* Gallery Grid */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .media-card {
+            background: linear-gradient(135deg, rgba(228,193,122,.12), rgba(255,255,255,.035));
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 10px;
+            box-shadow: 0 9px 28px rgba(0, 0, 0, .2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .media-card video, .media-card img {
+            width: 100%;
+            border-radius: 12px;
+            object-fit: cover;
+            background: #000;
+        }
+        .media-title {
+            margin-top: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--muted);
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            color: #aaa3b1;
+            font-size: 13px;
+            margin-top: 50px;
+        }
+        
+        @media(max-width: 440px) {
+            main { padding: 30px 15px 55px; }
+            h1 { font-size: 26px; }
+        }
+    </style>
 </head>
 <body>
-  <main>
-    <div class="top"></div>
-    <header>
-      <img class="brand-logo" src="data:image/jpeg;base64,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" alt="Younan Sefien logo">
-      <h1>قائمة الأسعار والباقات</h1>
-      <p class="tag">YOUNAN SEFIEN — محتوى بصري احترافي</p>
-    </header>
+    <main>
+        <div class="top"></div>
+        <header>
+            <h1>معرض الأعمال</h1>
+            <p class="tag">الفكرة أولاً.. الذكاء الاصطناعي ثانياً.. واللمسة البشرية دائماً</p>
+        </header>
 
-    <section>
-      <h2>ريلز الذكاء الاصطناعي</h2>
-      <div class="grid">
-        <article class="card">
-          <div class="row"><div class="name">ريل AI — من 30 إلى 40 ثانية</div><div class="price">500 جنيه</div></div>
-          <p class="extra">تعديل أو تغيير الفكرة: 200 جنيه</p>
-        </article>
-        <article class="card">
-          <div class="row"><div class="name">ريل AI — من 60 إلى 90 ثانية</div><div class="price">700 جنيه</div></div>
-          <p class="extra">تعديل أو تغيير الفكرة: 300 جنيه</p>
-        </article>
-      </div>
-    </section>
+        <div class="nav-links">
+            <a href="index.html" class="nav-btn">العودة لقائمة الأسعار</a>
+        </div>
 
-    <section>
-      <h2>باقات ريلز الذكاء الاصطناعي</h2>
-      <div class="grid">
-        <article class="card"><div class="row"><div class="name">باكدج 3 ريل AI</div><div class="price">1,350 جنيه</div></div><p class="details">مدة كل ريل: من 30 إلى 60 ثانية</p></article>
-        <article class="card"><div class="row"><div class="name">باكدج 5 ريل AI</div><div class="price">2,500 جنيه</div></div><p class="details">مدة كل ريل: من 30 إلى 60 ثانية</p></article>
-      </div>
-    </section>
+        <section class="gallery">
+            <!-- Project 1 -->
+            <article class="media-card">
+                <video src="project1.mp4" controls preload="metadata"></video>
+                <div class="media-title">مشروع 1</div>
+            </article>
 
-    <section>
-      <h2>باقات التصوير والمونتاج</h2>
-      <div class="grid">
-        <article class="card"><div class="row"><div class="name">ريل تصوير ومونتاج</div><div class="price">1,000 جنيه</div></div><p class="details">من 30 إلى 90 ثانية</p></article>
-        <article class="card"><div class="row"><div class="name">باكدج 3 ريل تصوير ومونتاج</div><div class="price">2,400 جنيه</div></div><p class="details">مدة كل ريل: من 30 إلى 90 ثانية</p></article>
-        <article class="card"><div class="row"><div class="name">باكدج 5 ريل تصوير ومونتاج</div><div class="price">3,500 جنيه</div></div><p class="details">مدة كل ريل: من 30 إلى 90 ثانية</p></article>
-      </div>
-    </section>
-    <footer><a class="whatsapp" href="https://wa.me/201018631307" target="_blank" rel="noopener">تواصل عبر واتساب <span aria-hidden="true">✆</span></a><p>تواصل معنا لمعرفة التفاصيل والحجز</p></footer>
-  </main>
+            <!-- Project 2 -->
+            <article class="media-card">
+                <video src="project2.mp4" controls preload="metadata"></video>
+                <div class="media-title">مشروع 2</div>
+            </article>
+
+            <!-- Project 3 (Image) -->
+            <article class="media-card">
+                <img src="project3.jpg" alt="تصميم مشروع 3">
+                <div class="media-title">مشروع 3</div>
+            </article>
+
+            <!-- Project 4 -->
+            <article class="media-card">
+                <video src="project4.mp4" controls preload="metadata"></video>
+                <div class="media-title">مشروع 4</div>
+            </article>
+
+            <!-- Project 5 -->
+            <article class="media-card">
+                <video src="project5.mp4" controls preload="metadata"></video>
+                <div class="media-title">مشروع 5</div>
+            </article>
+
+            <!-- Project 8 -->
+            <article class="media-card">
+                <video src="project8.mp4" controls preload="metadata"></video>
+                <div class="media-title">مشروع 8</div>
+            </article>
+        </section>
+
+        <footer>
+            <p>Creative Direction & AI Storytelling by Younan Sefien</p>
+        </footer>
+    </main>
 </body>
 </html>
