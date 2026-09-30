@@ -3,10 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>YOUNAN SEFIEN — معرض الأعمال</title>
- <div style="text-align: center; margin-bottom: 30px;">
-    <a href="portfolio.html" style="background: #e4c17a; color: #0b0a10; padding: 10px 24px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 16px;">شاهد معرض الأعمال ➔</a>
-</div>   <style>
+    <title>YOUNAN SEFIEN — قائمة الأسعار</title>
+    <style>
         :root {
             --bg: #0b0a10;
             --card: #17141f;
@@ -37,12 +35,10 @@
         header { text-align: center; margin-bottom: 40px; }
         h1 { color: var(--gold); font-size: 30px; margin: 0 0 9px; }
         .tag { color: var(--muted); margin: 0; font-size: 15px; }
-        
-        /* Navigation Buttons */
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
+
+        /* Navigation Button */
+        .nav-btn-container {
+            text-align: center;
             margin-bottom: 40px;
         }
         .nav-btn {
@@ -50,56 +46,83 @@
             border: 1px solid var(--line);
             color: var(--gold);
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 10px 24px;
             border-radius: 999px;
             font-weight: bold;
             transition: all 0.3s ease;
+            display: inline-block;
         }
         .nav-btn:hover {
             background: var(--gold);
             color: #0b0a10;
         }
 
-        /* Gallery Grid */
-        .gallery {
+        /* Pricing Tables */
+        .pricing-section {
+            margin-bottom: 50px;
+        }
+        .section-title {
+            color: var(--gold);
+            font-size: 24px;
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
-        .media-card {
+        .card {
             background: linear-gradient(135deg, rgba(228,193,122,.12), rgba(255,255,255,.035));
             border: 1px solid var(--line);
             border-radius: 18px;
-            padding: 10px;
+            padding: 24px;
             box-shadow: 0 9px 28px rgba(0, 0, 0, .2);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
-        .media-card video, .media-card img {
-            width: 100%;
-            border-radius: 12px;
-            object-fit: cover;
-            background: #000;
+        .card h3 {
+            margin: 0 0 15px;
+            color: #fff;
+            font-size: 20px;
         }
-        .media-title {
-            margin-top: 12px;
-            font-size: 16px;
+        .price {
+            font-size: 28px;
+            color: var(--gold);
             font-weight: bold;
-            color: var(--muted);
-            text-align: center;
+            margin-bottom: 15px;
         }
-
+        .price span {
+            font-size: 14px;
+            color: var(--muted);
+            font-weight: normal;
+        }
+        .features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .features li::before {
+            content: "✔ ";
+            color: var(--gold);
+        }
+        .note {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--muted);
+            border-right: 3px solid var(--gold);
+            line-height: 1.6;
+        }
         footer {
             text-align: center;
             color: #aaa3b1;
             font-size: 13px;
             margin-top: 50px;
-        }
-        
-        @media(max-width: 440px) {
-            main { padding: 30px 15px 55px; }
-            h1 { font-size: 26px; }
         }
     </style>
 </head>
@@ -107,50 +130,82 @@
     <main>
         <div class="top"></div>
         <header>
-            <h1>معرض الأعمال</h1>
+            <h1>قائمة الأسعار</h1>
             <p class="tag">الفكرة أولاً.. الذكاء الاصطناعي ثانياً.. واللمسة البشرية دائماً</p>
         </header>
 
-        <div class="nav-links">
-            <a href="index.html" class="nav-btn">العودة لقائمة الأسعار</a>
+        <!-- زر الانتقال لمعرض الأعمال -->
+        <div class="nav-btn-container">
+            <a href="portfolio.html" class="nav-btn">شاهد معرض الأعمال ➔</a>
         </div>
 
-        <section class="gallery">
-            <!-- Project 1 -->
-            <article class="media-card">
-                <video src="project1.mp4" controls preload="metadata"></video>
-                <div class="media-title">مشروع 1</div>
-            </article>
+        <section class="pricing-section">
+            <h2 class="section-title">باقات الذكاء الاصطناعي</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>ريل واحد (فردي)</h3>
+                    <div class="price">500 <span>جنيه (قصير)</span><br>700 <span>جنيه (طويل)</span></div>
+                    <ul class="features">
+                        <li>القصير: من 30 إلى 40 ثانية</li>
+                        <li>الطويل: من 60 إلى 90 ثانية</li>
+                        <li>أفكار إبداعية بلمسة بشرية</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>باقة 3 ريلز</h3>
+                    <div class="price">1,350 <span>جنيه</span></div>
+                    <ul class="features">
+                        <li>المدة: من 30 إلى 60 ثانية للريل</li>
+                        <li>توفير مقارنة بالسعر الفردي</li>
+                        <li>تناسق في الهوية البصرية</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>باقة 5 ريلز</h3>
+                    <div class="price">2,500 <span>جنيه</span></div>
+                    <ul class="features">
+                        <li>المدة: من 30 إلى 60 ثانية للريل</li>
+                        <li>متوسط سعر الريل 500 جنيه</li>
+                        <li>حملة إعلانية متكاملة</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="note">
+                <strong>ملاحظة:</strong> تتضمن أعمال الذكاء الاصطناعي الفردية رسوماً إضافية لتعديل أو تغيير الفكرة (200 جنيه للريل القصير 30-40 ثانية، و300 جنيه للريل الطويل 60-90 ثانية).
+            </div>
+        </section>
 
-            <!-- Project 2 -->
-            <article class="media-card">
-                <video src="project2.mp4" controls preload="metadata"></video>
-                <div class="media-title">مشروع 2</div>
-            </article>
-
-            <!-- Project 3 (Image) -->
-            <article class="media-card">
-                <img src="project3.jpg" alt="تصميم مشروع 3">
-                <div class="media-title">مشروع 3</div>
-            </article>
-
-            <!-- Project 4 -->
-            <article class="media-card">
-                <video src="project4.mp4" controls preload="metadata"></video>
-                <div class="media-title">مشروع 4</div>
-            </article>
-
-            <!-- Project 5 -->
-            <article class="media-card">
-                <video src="project5.mp4" controls preload="metadata"></video>
-                <div class="media-title">مشروع 5</div>
-            </article>
-
-            <!-- Project 8 -->
-            <article class="media-card">
-                <video src="project8.mp4" controls preload="metadata"></video>
-                <div class="media-title">مشروع 8</div>
-            </article>
+        <section class="pricing-section">
+            <h2 class="section-title">باقات التصوير والمونتاج</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>ريل واحد (فردي)</h3>
+                    <div class="price">1,000 <span>جنيه</span></div>
+                    <ul class="features">
+                        <li>المدة: من 30 إلى 90 ثانية</li>
+                        <li>تصوير احترافي</li>
+                        <li>مونتاج ديناميكي وجذاب</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>باقة 3 ريلز</h3>
+                    <div class="price">2,400 <span>جنيه</span></div>
+                    <ul class="features">
+                        <li>المدة: من 30 إلى 90 ثانية</li>
+                        <li>توفير 600 جنيه</li>
+                        <li>مثالية للمشروعات السريعة</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>باقة 5 ريلز</h3>
+                    <div class="price">3,500 <span>جنيه</span></div>
+                    <ul class="features">
+                        <li>المدة: من 30 إلى 90 ثانية</li>
+                        <li>توفير 1,500 جنيه (الريل بـ 700 جنيه)</li>
+                        <li>تغطية شاملة للمنتجات/الخدمات</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
         <footer>
