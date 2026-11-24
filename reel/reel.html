@@ -37,11 +37,30 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#1c1a4d}
  box-shadow:0 10px 40px rgba(242,106,33,.45)}
 #datePill b{display:block;font-size:64px;font-weight:900;line-height:1.2}
 #datePill i{display:block;font-style:normal;font-size:44px;font-weight:800;line-height:1.2}
-.card{left:70px;width:940px;height:230px;border-radius:120px;border:3px solid rgba(255,255,255,.28);
- background:rgba(28,26,77,.55);backdrop-filter:blur(6px);display:flex;align-items:center;padding:0 40px;gap:36px}
-.ic{flex:0 0 130px;height:130px;border-radius:50%;border:4px solid #fff;display:flex;align-items:center;justify-content:center}
-.ic svg{width:64px;height:64px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.card .lb{font-size:40px;font-weight:800;color:#f2894b;line-height:1.2}
+.card{left:70px;width:940px;height:230px;border-radius:120px;overflow:hidden;
+ background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.04) 45%,rgba(255,160,90,.10));
+ backdrop-filter:blur(22px) saturate(170%);-webkit-backdrop-filter:blur(22px) saturate(170%);
+ border:1.5px solid rgba(255,255,255,.35);
+ box-shadow:inset 0 2px 0 rgba(255,255,255,.55),inset 0 -2px 6px rgba(255,140,70,.25),inset 0 0 40px rgba(255,255,255,.06),0 24px 60px rgba(10,8,40,.45);
+ display:flex;align-items:center;padding:0 40px;gap:36px}
+.card::after,.ic::after{content:"";position:absolute;top:0;left:0;width:45%;height:100%;
+ background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);transform:translateX(var(--sh,-300%)) skewX(-18deg)}
+.ic{position:relative;overflow:hidden;flex:0 0 140px;height:140px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+ background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.55),rgba(255,255,255,.08) 38%,rgba(242,106,33,.35) 75%,rgba(255,190,140,.55) 100%);
+ backdrop-filter:blur(14px) saturate(180%);-webkit-backdrop-filter:blur(14px) saturate(180%);
+ border:1.5px solid rgba(255,255,255,.6);
+ box-shadow:inset 0 3px 2px rgba(255,255,255,.85),inset 0 -8px 16px rgba(242,106,33,.45),inset 0 0 22px rgba(255,255,255,.25),0 12px 30px rgba(242,106,33,.35),0 0 0 6px rgba(255,255,255,.06)}
+.ic::before{content:"";position:absolute;top:8px;left:22px;width:96px;height:44px;border-radius:50%;
+ background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,0))}
+.ic svg{position:relative;z-index:1;width:66px;height:66px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;
+ filter:drop-shadow(0 2px 4px rgba(120,40,10,.55))}
+#pill,#datePill{position:relative;overflow:hidden;
+ background:linear-gradient(180deg,rgba(255,170,110,.95),rgba(242,106,33,.92) 55%,rgba(200,70,20,.95));
+ box-shadow:inset 0 3px 2px rgba(255,255,255,.7),inset 0 -6px 14px rgba(120,30,0,.35),0 14px 40px rgba(242,106,33,.5)}
+#pill::after,#datePill::after{content:"";position:absolute;top:0;left:0;width:40%;height:100%;
+ background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:translateX(var(--sh,-300%)) skewX(-18deg)}
+#foot .f{background:rgba(255,255,255,.08);backdrop-filter:blur(18px);box-shadow:inset 0 2px 0 rgba(255,255,255,.45),0 12px 30px rgba(10,8,40,.35)}
+.card .lb{font-size:40px;font-weight:800;color:#ffc196;line-height:1.2}
 .card .nm{font-size:66px;font-weight:900;line-height:1.25}
 .card .sb{font-size:34px;font-weight:600;color:#cfc6e0}
 #c1{top:900px}#c2{top:1180px}
@@ -133,6 +152,8 @@ window.render=function(t){
  set('endTag',ease(seg(t,10.2,11)));
  // gentle pulse on title-day
  if(t>11) $('datePill').style.transform=`scale(${1+.03*Math.sin((t-11)*4)})`;
+ // liquid-glass shine
+ $('stage').style.setProperty('--sh',`${((t%3)/3)*700-300}%`);
  // fades
  $('fade').style.opacity=Math.max(1-ease(seg(t,0,.6)),ease(seg(t,T-.5,T)));
 };
