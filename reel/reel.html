@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;800;900&family=Lalezar&display=block" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#1c1a4d}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:'Cairo',sans-serif;color:#fff;
+ background:linear-gradient(155deg,#1c1a4d 0%,#25205a 38%,#5a2f55 68%,#a04a32 100%)}
+.abs{position:absolute}
+#glow{left:-300px;top:-300px;width:1700px;height:1700px;border-radius:50%;
+ background:radial-gradient(circle,rgba(240,110,40,.45) 0%,rgba(240,110,40,0) 60%)}
+#sweep{top:0;left:0;width:1080px;height:1920px;
+ background:linear-gradient(105deg,transparent 40%,rgba(255,220,180,.18) 50%,transparent 60%)}
+#church{left:50%;top:120px;width:300px;margin-left:-150px}
+#church img{width:100%}
+#churchName{top:390px;width:100%;text-align:center}
+#churchName .s{font-size:38px;font-weight:600;color:#d9cfe6}
+#churchName .b{font-size:52px;font-weight:900;line-height:1.3}
+#churchName .b span{color:#f2894b}
+#saint{width:700px;left:190px;top:560px}
+#saint img{width:100%;filter:drop-shadow(0 0 40px rgba(255,140,60,.35))}
+#halo{width:520px;height:520px;left:300px;top:600px;border-radius:50%;
+ background:radial-gradient(circle,rgba(255,200,120,.55),rgba(255,140,60,0) 65%)}
+#title{top:1300px;width:100%;text-align:center}
+#title .t{font-family:'Lalezar','Cairo';font-size:150px;line-height:1.1;
+ background:linear-gradient(180deg,#fff 55%,#ffd9bf);-webkit-background-clip:text;color:transparent;
+ text-shadow:none;filter:drop-shadow(0 8px 24px rgba(0,0,0,.35))}
+#pill{display:inline-block;background:#f26a21;color:#1c1a4d;font-weight:900;font-size:80px;
+ border-radius:80px;padding:0 60px;line-height:1.35;box-shadow:0 10px 40px rgba(242,106,33,.5)}
+/* day section */
+#day{top:250px;width:100%;text-align:center}
+#day .k{font-size:44px;font-weight:800;color:#f2894b;letter-spacing:2px}
+#day .d{font-family:'Lalezar','Cairo';font-size:200px;line-height:1.05}
+#datePill{display:inline-block;background:#f26a21;border-radius:70px;padding:8px 70px;color:#1c1a4d;margin-top:20px;
+ box-shadow:0 10px 40px rgba(242,106,33,.45)}
+#datePill b{display:block;font-size:64px;font-weight:900;line-height:1.2}
+#datePill i{display:block;font-style:normal;font-size:44px;font-weight:800;line-height:1.2}
+.card{left:70px;width:940px;height:230px;border-radius:120px;border:3px solid rgba(255,255,255,.28);
+ background:rgba(28,26,77,.55);backdrop-filter:blur(6px);display:flex;align-items:center;padding:0 40px;gap:36px}
+.ic{flex:0 0 130px;height:130px;border-radius:50%;border:4px solid #fff;display:flex;align-items:center;justify-content:center}
+.ic svg{width:64px;height:64px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.card .lb{font-size:40px;font-weight:800;color:#f2894b;line-height:1.2}
+.card .nm{font-size:66px;font-weight:900;line-height:1.25}
+.card .sb{font-size:34px;font-weight:600;color:#cfc6e0}
+#c1{top:900px}#c2{top:1180px}
+#foot{top:1520px;width:100%;text-align:center}
+#foot .f{display:inline-block;border:3px solid rgba(255,255,255,.35);border-radius:70px;padding:14px 60px;font-size:46px;font-weight:800}
+#foot .inv{margin-top:40px;font-size:42px;font-weight:600;color:#e7dff0}
+#endTag{top:1760px;width:100%;text-align:center;font-size:34px;font-weight:800;color:#d9cfe6}
+.ember{width:8px;height:8px;border-radius:50%;background:#ffb070;box-shadow:0 0 14px #ff8a3c}
+#fade{inset:0;background:#0e0c2a}
+</style>
+</head>
+<body>
+<div id="stage">
+ <div id="glow" class="abs"></div>
+ <div id="embers"></div>
+ <div id="sweep" class="abs"></div>
+
+ <!-- Scene A -->
+ <div id="church" class="abs"><img src="church.png"></div>
+ <div id="churchName" class="abs">
+  <div class="s">كنيسة الشهيد العظيم</div>
+  <div class="b">فيلوباتير مرقوريوس أبي سيفين <span>الطيبة</span></div>
+ </div>
+ <div id="halo" class="abs"></div>
+ <div id="saint" class="abs"><img src="saint.png"></div>
+ <div id="title" class="abs">
+  <div class="t">نهضة أبي سيفين</div>
+  <div id="pill">2026</div>
+ </div>
+
+ <!-- Scene B -->
+ <div id="day" class="abs">
+  <div class="k">نهضة أبي سيفين 2026</div>
+  <div class="d">اليوم الأول</div>
+  <div id="datePill"><b>الثلاثاء</b><i>٢٤ نوفمبر</i></div>
+ </div>
+ <div id="c1" class="card abs">
+  <div class="ic"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
+  <div><div class="lb">التسبيح مع</div><div class="nm">كورال حامل السيفين</div><div class="sb">بالكنيسة</div></div>
+ </div>
+ <div id="c2" class="card abs">
+  <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v18M6 9h12"/></svg></div>
+  <div><div class="lb">الكلمة مع</div><div class="nm">أبونا فيلوباتير صفوت</div><div class="sb">مدينة نصر</div></div>
+ </div>
+ <div id="foot" class="abs">
+  <div class="f">رفع بخور عشية الساعة ٦ مساءً</div>
+  <div class="inv">تدعوكم الكنيسة لحضور النهضة</div>
+ </div>
+ <div id="endTag" class="abs">تحت رعاية نيافة الأنبا بفنوتيوس</div>
+ <div id="fade" class="abs"></div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const cl=(x)=>Math.max(0,Math.min(1,x));
+const ease=x=>1-Math.pow(1-cl(x),3);
+const back=x=>{x=cl(x);const c=1.7;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const seg=(t,a,b)=>cl((t-a)/(b-a));
+// embers (deterministic)
+const E=[];let s=7;const rnd=()=>(s=(s*9301+49297)%233280)/233280;
+for(let i=0;i<40;i++){const d=document.createElement('div');d.className='ember abs';$('embers').appendChild(d);
+ E.push({d,x:rnd()*1080,sp:40+rnd()*90,ph:rnd()*1920,sz:.4+rnd()*1.2,w:rnd()*6});}
+function set(id,o,tr){const e=$(id);e.style.opacity=o;e.style.transform=tr||''}
+window.render=function(t){
+ const T=14;
+ // background motion
+ $('glow').style.transform=`translate(${Math.sin(t*.4)*80}px,${t*40}px)`;
+ $('sweep').style.transform=`translateX(${(t%5)/5*2400-1200}px)`;
+ E.forEach(e=>{const y=1920-((e.ph+t*e.sp)%2100);e.d.style.transform=`translate(${e.x+Math.sin(t+e.w)*30}px,${y}px) scale(${e.sz})`;
+  e.d.style.opacity=.25+.5*Math.abs(Math.sin(t*1.3+e.w));});
+ // Scene A: 0 - 5.6
+ const outA=1-ease(seg(t,5.0,5.6));
+ set('church',ease(seg(t,.2,1))*outA,`translateY(${(1-ease(seg(t,.2,1)))*-40}px) scale(${.9+.1*ease(seg(t,.2,1))})`);
+ set('churchName',ease(seg(t,.6,1.4))*outA,`translateY(${(1-ease(seg(t,.6,1.4)))*30}px)`);
+ const sa=ease(seg(t,1.2,2.6));
+ set('saint',sa*outA,`translateX(${(1-sa)*-500}px) translateY(${Math.sin(t*2)*8}px) rotate(${(1-sa)*-8}deg)`);
+ set('halo',sa*outA*(.7+.3*Math.sin(t*3)),`scale(${.8+.2*sa})`);
+ const ti=seg(t,2.4,3.2);
+ set('title',ease(ti)*outA,`scale(${.6+.4*back(ti)})`);
+ $('pill').style.transform=`scale(${back(seg(t,3.0,3.6))})`;
+ // Scene B: 5.4 -
+ const db=seg(t,5.5,6.3);
+ set('day',ease(db),`translateY(${(1-ease(db))*60}px)`);
+ $('datePill').style.transform=`scale(${back(seg(t,6.2,6.8))})`;
+ const c1=seg(t,7.0,7.8),c2=seg(t,8.0,8.8);
+ set('c1',ease(c1),`translateX(${(1-ease(c1))*-700}px)`);
+ set('c2',ease(c2),`translateX(${(1-ease(c2))*700}px)`);
+ const f=seg(t,9.2,10);
+ set('foot',ease(f),`translateY(${(1-ease(f))*40}px)`);
+ set('endTag',ease(seg(t,10.2,11)));
+ // gentle pulse on title-day
+ if(t>11) $('datePill').style.transform=`scale(${1+.03*Math.sin((t-11)*4)})`;
+ // fades
+ $('fade').style.opacity=Math.max(1-ease(seg(t,0,.6)),ease(seg(t,T-.5,T)));
+};
+render(0);
+</script>
+</body></html>
